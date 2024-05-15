@@ -2,8 +2,8 @@ package xadrez;
 
 import Tabuleiro.Posição;
 import Tabuleiro.Tabuleiro;
-import peças.xadrez.Rei;
-import peças.xadrez.Torre;
+import xadrez.peças.Rei;
+import xadrez.peças.Torre;
 
 public class PartidaDeXadrez {
 	
@@ -25,7 +25,8 @@ public class PartidaDeXadrez {
 	}
 	
 	private void setupInicial() {
-		tabuleiro.botarPeça(new Torre(tabuleiro, Cor.branco), new Posição(2,1));
-		tabuleiro.botarPeça(new Rei(tabuleiro, Cor.preto), new Posição(0,4));
+		tabuleiro.botarPeça(new Torre(tabuleiro, Cor.branco), new Posição(2, 1));
+		tabuleiro.botarPeça(new Rei(tabuleiro, Cor.preto), new Posição(0, 4));
+		tabuleiro.botarPeça(new Rei(tabuleiro, Cor.branco), new Posição(5, 3));
 	}
 }

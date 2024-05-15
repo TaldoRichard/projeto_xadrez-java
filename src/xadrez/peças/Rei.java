@@ -1,18 +1,17 @@
-package peças.xadrez;
+package xadrez.peças;
 
 import Tabuleiro.Tabuleiro;
 import xadrez.Cor;
 import xadrez.PeçaDeXadrez;
 
-public class Torre extends PeçaDeXadrez{
+public class Rei extends PeçaDeXadrez {
 
-	public Torre(Tabuleiro tabuleiro, Cor cor) {
+	public Rei(Tabuleiro tabuleiro, Cor cor) {
 		super(tabuleiro, cor);
 	}
 	
 	@Override
 	public String toString() {
-		return "T";
+		return "R";
 	}
-
 }
