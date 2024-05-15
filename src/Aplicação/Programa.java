@@ -3,7 +3,7 @@ package Aplicação;
 import java.util.Locale;
 import java.util.Scanner;
 
-import Tabuleiro.Tabuleiro;
+import xadrez.PartidaDeXadrez;
 
 public class Programa {
 
@@ -12,7 +12,8 @@ public class Programa {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
-		Tabuleiro tab = new Tabuleiro(8, 8);
+		PartidaDeXadrez partida = new PartidaDeXadrez();
+		UI.printTabuleiro(partida.getPeças());
 		
 		
 		sc.close();
