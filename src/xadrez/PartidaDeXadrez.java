@@ -9,10 +9,22 @@ import xadrez.peças.Torre;
 public class PartidaDeXadrez {
 	
 	private Tabuleiro tabuleiro;
+	private int turno;
+	private Cor jogadorAtual;
 	
 	public PartidaDeXadrez() {
 		tabuleiro = new Tabuleiro(8, 8);
+		turno = 1;
+		jogadorAtual = Cor.branco;
 		setupInicial();
+	}
+	
+	public int getTurno() {
+		return turno;
+	}
+	
+	public Cor getjogadorAtual() {
+		return jogadorAtual;
 	}
 	
 	public PeçaDeXadrez[][] getPeças(){
@@ -37,6 +49,7 @@ public class PartidaDeXadrez {
 		validarPosiçaoOrigem(origem);
 		validarPosiçaoDestino(origem, destino);
 		Peça peçaCapturada = movimentar(origem, destino);
+		proximoTurno();
 		return (PeçaDeXadrez)peçaCapturada;
 	}
 	
@@ -51,6 +64,9 @@ public class PartidaDeXadrez {
 		if (!tabuleiro.temUmaPeça(posição)) {
 			throw new ExceçãoXadrez("Não há uma peça na posição de origem!");
 		}
+		if (jogadorAtual != ((PeçaDeXadrez)tabuleiro.peça(posição)).getCor()) {
+			throw new ExceçãoXadrez("A peça escolhida não é sua!");
+		}
 		if (tabuleiro.peça(posição).existeAlgumMovimento()) {
 			throw new ExceçãoXadrez("Não há um movimentos possiveis para a peça escolhida!");
 		}
@@ -64,6 +80,11 @@ public class PartidaDeXadrez {
 	
 	private void botarNovaPeça(char coluna, int linha, PeçaDeXadrez peça) {
 		tabuleiro.botarPeça(peça, new PosiçãoXadrez(coluna, linha).toPosição());
+	}
+	
+	private void proximoTurno() {
+		turno++;
+		jogadorAtual = (jogadorAtual == Cor.branco) ? Cor.preto : Cor.branco; 
 	}
 	
 	private void setupInicial() {
