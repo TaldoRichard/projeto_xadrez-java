@@ -9,7 +9,7 @@ public class PartidaDeXadrez {
 	private Tabuleiro tabuleiro;
 	
 	public PartidaDeXadrez() {
-		tabuleiro = new Tabuleiro(8 ,8);
+		tabuleiro = new Tabuleiro(8, 8);
 		setupInicial();
 	}
 	
@@ -28,8 +28,18 @@ public class PartidaDeXadrez {
 	}
 	
 	private void setupInicial() {
-		botarNovaPeça('b', 6, new Torre(tabuleiro, Cor.branco));
-		botarNovaPeça('e', 8, new Rei(tabuleiro, Cor.preto));
-		botarNovaPeça('e', 1, new Rei(tabuleiro, Cor.branco));
+		botarNovaPeça('c', 1, new Torre(tabuleiro, Cor.branco));
+		botarNovaPeça('c', 2, new Torre(tabuleiro, Cor.branco));
+		botarNovaPeça('d', 2, new Torre(tabuleiro, Cor.branco));
+        botarNovaPeça('e', 2, new Torre(tabuleiro, Cor.branco));
+        botarNovaPeça('e', 1, new Torre(tabuleiro, Cor.branco));
+        botarNovaPeça('d', 1, new Rei(tabuleiro, Cor.branco));
+
+        botarNovaPeça('c', 7, new Torre(tabuleiro, Cor.preto));
+        botarNovaPeça('c', 8, new Torre(tabuleiro, Cor.preto));
+        botarNovaPeça('d', 7, new Torre(tabuleiro, Cor.preto));
+        botarNovaPeça('e', 7, new Torre(tabuleiro, Cor.preto));
+        botarNovaPeça('e', 8, new Torre(tabuleiro, Cor.preto));
+        botarNovaPeça('d', 8, new Rei(tabuleiro, Cor.preto));
 	}
 }
