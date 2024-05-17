@@ -54,12 +54,10 @@ public class Peão extends PeçaDeXadrez {
 				mat[p.getLinha()][p.getColuna()] = true;
 			}
 		}
-		
-		return null;
+		return mat;
 	}
 
 	private int getContadorDeMovimentos() {
-	
 		return 0;
 	}
 	

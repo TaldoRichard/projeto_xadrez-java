@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import Tabuleiro.Peça;
 import Tabuleiro.Posição;
 import Tabuleiro.Tabuleiro;
+import xadrez.peças.Bispo;
 import xadrez.peças.Peão;
 import xadrez.peças.Rei;
 import xadrez.peças.Torre;
@@ -191,8 +192,10 @@ public class PartidaDeXadrez {
 	
 	private void setupInicial() {
 		botarNovaPeça('a', 1, new Torre(tabuleiro, Cor.branco));
+		botarNovaPeça('c', 1, new Bispo(tabuleiro, Cor.branco));
 		botarNovaPeça('e', 1, new Rei(tabuleiro, Cor.branco));
 		botarNovaPeça('h', 1, new Torre(tabuleiro, Cor.branco));
+		botarNovaPeça('f', 1, new Bispo(tabuleiro, Cor.branco));
 		botarNovaPeça('a', 2, new Peão(tabuleiro, Cor.branco));
 		botarNovaPeça('b', 2, new Peão(tabuleiro, Cor.branco));
 		botarNovaPeça('c', 2, new Peão(tabuleiro, Cor.branco));
@@ -203,7 +206,9 @@ public class PartidaDeXadrez {
 		botarNovaPeça('h', 2, new Peão(tabuleiro, Cor.branco));
 
 		botarNovaPeça('a', 8, new Torre(tabuleiro, Cor.preto));
+		botarNovaPeça('c', 8, new Bispo(tabuleiro, Cor.preto));
 		botarNovaPeça('e', 8, new Rei(tabuleiro, Cor.preto));
+		botarNovaPeça('f', 8, new Bispo(tabuleiro, Cor.preto));
 		botarNovaPeça('h', 8, new Torre(tabuleiro, Cor.preto));
 		botarNovaPeça('a', 7, new Peão(tabuleiro, Cor.preto));
 		botarNovaPeça('b', 7, new Peão(tabuleiro, Cor.preto));
