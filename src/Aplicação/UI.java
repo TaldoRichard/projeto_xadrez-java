@@ -58,6 +58,9 @@ public class UI {
 		printPeçasCapturadas(capturadas);
 		System.out.println("Turno: " + partida.getTurno());
 		System.out.println("Esperando jogador: " + partida.getjogadorAtual());
+		if(partida.getCheck()) {
+			System.out.println("CHECK!");
+		}
 	}
 	
 	public static void printTabuleiro(PeçaDeXadrez[][] peças) {
@@ -111,7 +114,7 @@ public class UI {
 		System.out.println(ANSI_RESET);
 		System.out.print("Preto: ");
 		System.out.print(ANSI_YELLOW);
-		System.out.println(Arrays.toString(branco.toArray()));
+		System.out.println(Arrays.toString(preto.toArray()));
 		System.out.println(ANSI_RESET);
 	}
 }
