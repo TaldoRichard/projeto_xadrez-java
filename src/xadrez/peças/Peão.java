@@ -57,7 +57,7 @@ public class Peão extends PeçaDeXadrez {
 		return mat;
 	}
 
-	private int getContadorDeMovimentos() {
+	public int getContadorDeMovimentos() {
 		return 0;
 	}
 	

@@ -70,7 +70,7 @@ public class Tabuleiro {
 	public boolean temUmaPeça(Posição posição) {
 		if (!posiçãoExistente(posição)) {
 			throw new ExceçãoTabuleiro("Posição não existe no tabuleiro!");
-			}
+		}
 		return peça(posição) != null;
 	}
 }

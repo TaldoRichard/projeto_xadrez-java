@@ -34,4 +34,8 @@ public abstract class PeçaDeXadrez extends Peça{
 		contadorDeMovimentos--;
 	}
 
+	public int getContadorDeMovimentos() {
+		return contadorDeMovimentos;
+	}
+
 }

@@ -98,6 +98,24 @@ public class PartidaDeXadrez {
 			peçasNoTabuleiro.remove(peçaCapturada);
 			peçasCapturadas.add(peçaCapturada);
 		}
+		
+		// #movimento especial aqui lado rei
+		if (p instanceof Rei && destino.getColuna() == origem.getColuna() + 2) {
+			Posição origemT = new Posição(origem.getLinha(), origem.getColuna() + 3);
+			Posição destinoT = new Posição(origem.getLinha(), origem.getColuna() + 1);
+			PeçaDeXadrez torre = (PeçaDeXadrez)tabuleiro.removerPeça(origemT);
+			tabuleiro.botarPeça(torre, destinoT);
+			torre.aumentarContador();
+		}
+		
+		// #movimento especial aqui lado rainha
+		if (p instanceof Rei && destino.getColuna() == origem.getColuna() - 2) {
+			Posição origemT = new Posição(origem.getLinha(), origem.getColuna() - 4);
+			Posição destinoT = new Posição(origem.getLinha(), origem.getColuna() - 1);
+			PeçaDeXadrez torre = (PeçaDeXadrez)tabuleiro.removerPeça(origemT);
+			tabuleiro.botarPeça(torre, destinoT);
+			torre.aumentarContador();
+		}
 		return peçaCapturada;
 	}
 	
@@ -111,6 +129,25 @@ public class PartidaDeXadrez {
 			peçasCapturadas.remove(peçaCapturada);
 			peçasNoTabuleiro.add(peçaCapturada);
 		}
+	
+		// #movimento especial aqui lado rei
+		if (p instanceof Rei && destino.getColuna() == origem.getColuna() + 2) {
+			Posição origemT = new Posição(origem.getLinha(), origem.getColuna() + 3);
+			Posição destinoT = new Posição(origem.getLinha(), origem.getColuna() + 1);
+			PeçaDeXadrez torre = (PeçaDeXadrez)tabuleiro.removerPeça(destinoT);
+			tabuleiro.botarPeça(torre, origemT);
+			torre.diminuirContador();
+		}
+
+		// #movimento especial aqui lado rainha
+		if (p instanceof Rei && destino.getColuna() == origem.getColuna() - 2) {
+			Posição origemT = new Posição(origem.getLinha(), origem.getColuna() - 4);
+			Posição destinoT = new Posição(origem.getLinha(), origem.getColuna() - 1);
+			PeçaDeXadrez torre = (PeçaDeXadrez)tabuleiro.removerPeça(destinoT);
+			tabuleiro.botarPeça(torre, origemT);
+			torre.diminuirContador();
+		}
+	
 	}
 	
 	private void validarPosiçaoOrigem(Posição posição) {
@@ -197,7 +234,7 @@ public class PartidaDeXadrez {
 		botarNovaPeça('b', 1, new Cavalo(tabuleiro, Cor.branco));
 		botarNovaPeça('c', 1, new Bispo(tabuleiro, Cor.branco));
 		botarNovaPeça('d', 1, new Rainha(tabuleiro, Cor.branco));
-		botarNovaPeça('e', 1, new Rei(tabuleiro, Cor.branco));
+		botarNovaPeça('e', 1, new Rei(tabuleiro, Cor.branco, this));
 		botarNovaPeça('h', 1, new Torre(tabuleiro, Cor.branco));
 		botarNovaPeça('f', 1, new Bispo(tabuleiro, Cor.branco));
 		botarNovaPeça('g', 1, new Cavalo(tabuleiro, Cor.branco));
@@ -214,7 +251,7 @@ public class PartidaDeXadrez {
 		botarNovaPeça('b', 8, new Cavalo(tabuleiro, Cor.preto));
 		botarNovaPeça('c', 8, new Bispo(tabuleiro, Cor.preto));
 		botarNovaPeça('d', 8, new Rainha(tabuleiro, Cor.preto));
-		botarNovaPeça('e', 8, new Rei(tabuleiro, Cor.preto));
+		botarNovaPeça('e', 8, new Rei(tabuleiro, Cor.preto, this));
 		botarNovaPeça('f', 8, new Bispo(tabuleiro, Cor.preto));
 		botarNovaPeça('g', 8, new Cavalo(tabuleiro, Cor.preto));
 		botarNovaPeça('h', 8, new Torre(tabuleiro, Cor.preto));
